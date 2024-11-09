@@ -1,0 +1,30 @@
+.weather-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  list-style: none;
+}
+
+.city-block {
+  position: relative;
+  margin-top: 0;
+}
+
+.remove-block-button {
+  z-index: 2;
+  background-color: burlywood;
+  padding: 5px 10px;
+  font-weight: 600;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid gainsboro;
+  box-shadow: 1px 1px 1px rgba(240, 239, 239, 0.5);
+  position: absolute;
+  top: 30px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.remove-block-button:hover {
+  background-color: coral;
+}
