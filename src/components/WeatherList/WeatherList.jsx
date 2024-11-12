@@ -28,6 +28,7 @@ const WeatherList = ({ weatherBlocks, onRemoveCity }) => {
   return (
     <div>
       <ul className="weather-container">
+        <label className="title-favorite">Favorite cities</label>
         {weatherBlocks.map((block) => (
           <li key={block.id} className="city-block">
             <button

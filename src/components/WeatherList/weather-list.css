@@ -4,6 +4,10 @@
   align-items: center;
   list-style: none;
 }
+.title-favorite {
+  font-size: 23px;
+  font-weight: 700;
+}
 
 .city-block {
   position: relative;
