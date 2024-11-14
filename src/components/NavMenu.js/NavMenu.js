@@ -3,6 +3,7 @@ import NavAuth from "./NavAuth";
 import { selectIsLogin } from "../../redux/auth/auth-selectors";
 import "./nav-menu.css";
 import { useSelector } from "react-redux";
+import NavUser from "./NavUser/NavUser";
 
 const NavMenu = () => {
   const isLogin = useSelector(selectIsLogin);
@@ -12,13 +13,8 @@ const NavMenu = () => {
       <NavLink className="link" to="/">
         Home
       </NavLink>
-      {isLogin ? (
-        <NavLink className="link" to="/favorites">
-          Favorites
-        </NavLink>
-      ) : (
-        <NavAuth />
-      )}
+
+      {isLogin ? <NavUser /> : <NavAuth />}
     </div>
   );
 };

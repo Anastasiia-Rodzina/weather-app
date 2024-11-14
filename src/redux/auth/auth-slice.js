@@ -1,4 +1,10 @@
-import { login, register, current, logout } from "./auth-operations";
+import {
+  login,
+  register,
+  current,
+  logout,
+  updateUser,
+} from "./auth-operations";
 
 import { createSlice } from "@reduxjs/toolkit";
 
@@ -52,6 +58,20 @@ const authSlice = createSlice({
       .addCase(current.rejected, (state) => {
         state.isLoading = false;
         state.token = "";
+      })
+      .addCase(updateUser.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(updateUser.fulfilled, (state, action) => {
+        state.user.name = action.payload.name;
+        state.user.email = action.payload.email;
+        state.user.id = action.payload._id;
+        state.isLogin = true;
+        state.isLoading = false;
+      })
+      .addCase(updateUser.rejected, (state, action) => {
+        state.error = action.payload;
+        state.isLoading = false;
       })
       .addCase(logout.pending, pending)
       .addCase(logout.fulfilled, (state) => {

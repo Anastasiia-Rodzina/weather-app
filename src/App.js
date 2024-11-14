@@ -1,18 +1,19 @@
 import React, { Suspense, useEffect, useState } from "react";
-import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import WeatherList from "./components/WeatherList/WeatherList";
-import { RegisterForm } from "./components/RegisterForm/RegisterForm";
-import { LoginForm } from "./components/LoginForm/LoginForm";
-import Home from "./components/Home/Home";
 import NavMenu from "./components/NavMenu.js/NavMenu";
-import PublicRoute from "./components/PublicRoute/PublicRoute";
-import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import { useDispatch } from "react-redux";
 import { current } from "./redux/auth/auth-operations";
+import RoutesComponent from "./RoutesComponent";
+import {
+  addCityToWeatherList,
+  handleDataFetched,
+} from "./helper/weatherHelpers";
 
 function App() {
-  const [weatherBlocks, setWeatherBlocks] = useState([]);
+  const [weatherBlocks, setWeatherBlocks] = useState(() => {
+    const savedWeatherBlocks = localStorage.getItem("weatherBlocks");
+    return savedWeatherBlocks ? JSON.parse(savedWeatherBlocks) : [];
+  });
   const [mainWeather, setMainWeather] = useState(null);
   const [forecast, setForecast] = useState(null);
   const [hourlyTemps, setHourlyTemps] = useState([]);
@@ -25,26 +26,34 @@ function App() {
     dispatch(current());
   }, [dispatch]);
 
-  const handleSearchChange = (data) => {
+  useEffect(() => {
+    fetch("https://ipapi.co/json/")
+      .then((res) => res.json())
+      .then((data) => {
+        const { city, latitude, longitude } = data;
+        handleOnSearchChange({
+          label: city,
+          value: `${latitude} ${longitude}`,
+        });
+      })
+      .catch(console.log);
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("weatherBlocks", JSON.stringify(weatherBlocks));
+  }, [weatherBlocks]);
+
+  const handleOnSearchChange = (data) => {
     setSearchData(data);
   };
 
-  const handleDataFetched = ({ mainWeather, forecast, hourlyTemps }) => {
-    setMainWeather(mainWeather);
-    setForecast(forecast);
-    setHourlyTemps(hourlyTemps);
-  };
-
-  const addCityToWeatherList = () => {
-    if (mainWeather && weatherBlocks.length < 5) {
-      const newWeatherData = {
-        id: Date.now(),
-        city: mainWeather.city,
-        currentWeather: mainWeather,
-      };
-      setWeatherBlocks((prevBlocks) => [...prevBlocks, newWeatherData]);
-    }
-  };
+  const handleFetchedData = handleDataFetched(
+    setMainWeather,
+    setForecast,
+    setHourlyTemps
+  );
+  const addCity = () =>
+    addCityToWeatherList(mainWeather, weatherBlocks, setWeatherBlocks);
 
   const handleRemoveCity = (id) => {
     setWeatherBlocks((prevBlocks) =>
@@ -66,41 +75,19 @@ function App() {
     <Suspense fallback={<>Loading ...</>}>
       <div className="container">
         <NavMenu />
-
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <Home
-                mainWeather={mainWeather}
-                forecast={forecast}
-                hourlyTemps={hourlyTemps}
-                searchData={searchData}
-                onSearchChange={handleSearchChange}
-                onDataFetched={handleDataFetched}
-                addCityToWeatherList={addCityToWeatherList}
-                isCityInWeatherList={isCityInWeatherList}
-                selectedWeather={selectedWeather}
-              />
-            }
-          />
-          <Route element={<PublicRoute />}>
-            <Route path="/register" element={<RegisterForm />} />
-            <Route path="/login" element={<LoginForm />} />
-          </Route>
-          <Route element={<PrivateRoute />}>
-            <Route
-              path="/favorites"
-              element={
-                <WeatherList
-                  weatherBlocks={weatherBlocks}
-                  onRemoveCity={handleRemoveCity}
-                  onSelectCity={handleSelectCity}
-                />
-              }
-            />
-          </Route>
-        </Routes>
+        <RoutesComponent
+          mainWeather={mainWeather}
+          forecast={forecast}
+          hourlyTemps={hourlyTemps}
+          searchData={searchData}
+          onSearchChange={handleOnSearchChange}
+          onDataFetched={handleFetchedData}
+          addCityToWeatherList={addCity}
+          isCityInWeatherList={isCityInWeatherList}
+          weatherBlocks={weatherBlocks}
+          onRemoveCity={handleRemoveCity}
+          onSelectCity={handleSelectCity}
+        />
       </div>
     </Suspense>
   );

@@ -5,10 +5,8 @@ const WeatherFetcher = ({ searchData, onDataFetched }) => {
   const [prevSearchData, setPrevSearchData] = React.useState(null);
 
   React.useEffect(() => {
-    // Перевіряємо, чи є нове значення `searchData`, щоб уникнути зайвих запитів
     if (!searchData || searchData.value === prevSearchData) return;
 
-    // Зберігаємо попереднє значення `searchData`
     setPrevSearchData(searchData.value);
 
     const [lat, lon] = searchData.value.split(" ");

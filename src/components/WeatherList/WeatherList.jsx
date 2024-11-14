@@ -1,12 +1,20 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import CurrentWeather from "../CurrentWeather/CurrentWeather";
 
 import "./weather-list.css";
 import DeleteCardModal from "../Modal/DeleteModal";
+import { useDispatch } from "react-redux";
+import { current } from "../../redux/auth/auth-operations";
 
 const WeatherList = ({ weatherBlocks, onRemoveCity }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedCityId, setSelectedCityId] = useState(null);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(current());
+  }, [dispatch]);
 
   const handleOpenModal = (cityId) => {
     setSelectedCityId(cityId);

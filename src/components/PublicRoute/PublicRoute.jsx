@@ -12,7 +12,7 @@ const PublicRoute = () => {
   }
 
   if (isLogin) {
-    return <Navigate to="/favorites" />;
+    return <Navigate to="/" />;
   }
   return <Outlet />;
 };

@@ -46,6 +46,18 @@ export const current = createAsyncThunk(
   }
 );
 
+export const updateUser = createAsyncThunk(
+  "auth/update",
+  async (userData, { rejectWithValue }) => {
+    try {
+      const data = await api.updateUser(userData.formData);
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
+
 export const logout = createAsyncThunk(
   "auth/logout",
   async (_, { rejectWithValue }) => {

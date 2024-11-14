@@ -1,8 +1,16 @@
 import axios from "axios";
 
 const authInstance = axios.create({
-  baseURL: "http://localhost:5000",
+  baseURL: "http://localhost:4000",
 });
+
+// authInstance.interceptors.request.use((config) => {
+//   const { auth } = store.getState(); // отримуємо токен з auth-стану
+//   if (auth.token) {
+//     config.headers.Authorization = `Bearer ${auth.token}`;
+//   }
+//   return config;
+// });
 
 export const setToken = (token) => {
   authInstance.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -39,5 +47,9 @@ export const getCurrent = async (token) => {
     setToken();
     throw error;
   }
+};
+export const updateUser = async (formData) => {
+  const { data } = await authInstance.put("/auth/update", formData);
+  return data;
 };
 export default authInstance;
