@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import CurrentWeather from "../CurrentWeather/CurrentWeather.js";
 
 import "./weather-list.css";
-import DeleteCardModal from "../Modal/DeleteModal.js";
+import DeleteCardModal from "../Modal/DeleteModal.jsx";
 import { useDispatch } from "react-redux";
 import { current } from "../../redux/auth/auth-operations.js";
 

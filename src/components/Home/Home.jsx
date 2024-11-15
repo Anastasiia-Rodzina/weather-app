@@ -2,7 +2,7 @@ import React from "react";
 import Search from "../Search/Search.js";
 import CurrentWeather from "../CurrentWeather/CurrentWeather.js";
 import Forecast from "../Forecast/Forecast.js";
-import TemperatureChart from "../TemperatureChart/TemperatureChart.js";
+import TemperatureChart from "../TemperatureChart/TemperatureChart.jsx";
 import WeatherFetcher from "../../helper/WeatherFetcher.js";
 
 const Home = ({
