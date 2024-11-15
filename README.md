@@ -1,70 +1,47 @@
-# Getting Started with Create React App
+# "Weather App"
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This repository contains the Weather App Frontend project.
 
-## Available Scripts
+<a href="https://github.com/Anastasiia-Rodzina/weather_back">This is a link to the backend repository</a>
 
-In the project directory, you can run:
+## Project Overview
 
-### `npm start`
+This project implements the server-side component of the TaskPro application. It is built on Node.js, utilizing the Express.js framework to implement the API and Mongoose for interacting with the MongoDB database.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Technologies Used
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Core Front-End Libraries
 
-### `npm test`
+- React: A JavaScript library for building user interfaces, providing a component-based architecture for scalable and dynamic UI.
+- React DOM: Enables rendering React components in the DOM.
+- React Router DOM: Provides routing functionality for navigating between pages in a React application.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+State Management
 
-### `npm run build`
+- @reduxjs/toolkit: Simplifies Redux implementation with built-in utilities for creating slices, reducers, and asynchronous logic.
+- React Redux: Connects React components to the Redux store.
+- Redux Persist: Persist and rehydrate Redux state across sessions.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+API and Data Handling
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Axios: A promise-based HTTP client for making API requests.
+- React Select Async Paginate: A customizable and paginated dropdown menu for selecting options with asynchronous data fetching.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Data Visualization
 
-### `npm run eject`
+- Chart.js: A flexible and powerful charting library for rendering graphs.
+- React Chart.js 2: A React wrapper for Chart.js, making it easier to integrate charts into a React project.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Accessibility
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- React Accessible Accordion: A library for creating accessible accordion components, adhering to WAI-ARIA guidelines.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Environment Variables
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- dotenv: A library to manage environment variables, ensuring secure handling of sensitive configuration data.
 
-## Learn More
+Testing
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- @testing-library/jest-dom: Custom jest matchers for testing the DOM.
+- @testing-library/react: A library for testing React components, encouraging best practices by testing user interactions.
+- @testing-library/user-event: A utility for simulating user interactions in tests.

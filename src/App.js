@@ -17,6 +17,7 @@ function App() {
   const [mainWeather, setMainWeather] = useState(null);
   const [forecast, setForecast] = useState(null);
   const [hourlyTemps, setHourlyTemps] = useState([]);
+  // eslint-disable-next-line no-unused-vars
   const [selectedWeather, setSelectedWeather] = useState(null);
   const [searchData, setSearchData] = useState(null);
 
