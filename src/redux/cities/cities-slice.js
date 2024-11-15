@@ -3,7 +3,7 @@ import {
   addCityThunk,
   deleteCityThunk,
   getCitiesThunk,
-} from "./cities-operations";
+} from "./cities-operations.js";
 
 const initialState = {
   cities: [],

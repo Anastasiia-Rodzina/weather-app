@@ -1,13 +1,13 @@
 import React, { Suspense, useEffect, useState } from "react";
 import "./App.css";
-import NavMenu from "./components/NavMenu.js/NavMenu";
+import NavMenu from "./components/NavMenu.js/NavMenu.js";
 import { useDispatch } from "react-redux";
-import { current } from "./redux/auth/auth-operations";
-import RoutesComponent from "./RoutesComponent";
+import { current } from "./redux/auth/auth-operations.js";
+import RoutesComponent from "./RoutesComponent.js";
 import {
   addCityToWeatherList,
   handleDataFetched,
-} from "./helper/weatherHelpers";
+} from "./helper/weatherHelpers.js";
 
 function App() {
   const [weatherBlocks, setWeatherBlocks] = useState(() => {

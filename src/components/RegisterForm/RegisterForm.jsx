@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import "./register-form.css";
-import { register } from "../../redux/auth/auth-operations";
+import { register } from "../../redux/auth/auth-operations.js";
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();

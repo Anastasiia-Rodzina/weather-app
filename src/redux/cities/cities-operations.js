@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { getAllCities, addCity, deleteCity } from "../../api/cities-api";
+import { getAllCities, addCity, deleteCity } from "../../api/cities-api.js";
 
 export const getCitiesThunk = createAsyncThunk(
   "cities/getCity",

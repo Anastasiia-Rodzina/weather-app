@@ -1,4 +1,4 @@
-import { login } from "../../redux/auth/auth-operations";
+import { login } from "../../redux/auth/auth-operations.js";
 import { useDispatch } from "react-redux";
 import "./login-form.css";
 

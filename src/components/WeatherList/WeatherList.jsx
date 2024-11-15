@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import CurrentWeather from "../CurrentWeather/CurrentWeather";
+import CurrentWeather from "../CurrentWeather/CurrentWeather.js";
 
 import "./weather-list.css";
-import DeleteCardModal from "../Modal/DeleteModal";
+import DeleteCardModal from "../Modal/DeleteModal.js";
 import { useDispatch } from "react-redux";
-import { current } from "../../redux/auth/auth-operations";
+import { current } from "../../redux/auth/auth-operations.js";
 
 const WeatherList = ({ weatherBlocks, onRemoveCity }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);

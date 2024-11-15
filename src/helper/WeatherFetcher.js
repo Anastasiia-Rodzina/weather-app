@@ -1,5 +1,5 @@
 import React from "react";
-import { WEATHER_API_URL, WEATHER_API_KEY } from "../api/api";
+import { WEATHER_API_URL, WEATHER_API_KEY } from "../api/api.js";
 
 const WeatherFetcher = ({ searchData, onDataFetched }) => {
   const [prevSearchData, setPrevSearchData] = React.useState(null);

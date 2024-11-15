@@ -3,7 +3,7 @@ import NavAuth from "./NavAuth";
 import { selectIsLogin } from "../../redux/auth/auth-selectors";
 import "./nav-menu.css";
 import { useSelector } from "react-redux";
-import NavUser from "./NavUser/NavUser";
+import NavUser from "./NavUser/NavUser.jsx";
 
 const NavMenu = () => {
   const isLogin = useSelector(selectIsLogin);

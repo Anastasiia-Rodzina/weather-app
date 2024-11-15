@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import "./nav-user.css";
-import { selectUser } from "../../../redux/auth/auth-selectors";
-import { logout } from "../../../redux/auth/auth-operations";
+import { selectUser } from "../../../redux/auth/auth-selectors.js";
+import { logout } from "../../../redux/auth/auth-operations.js";
 import { NavLink } from "react-router-dom";
 
 const NavUser = () => {

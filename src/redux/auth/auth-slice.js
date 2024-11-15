@@ -4,7 +4,7 @@ import {
   current,
   logout,
   updateUser,
-} from "./auth-operations";
+} from "./auth-operations.js";
 
 import { createSlice } from "@reduxjs/toolkit";
 
