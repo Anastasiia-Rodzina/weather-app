@@ -1,7 +1,10 @@
 import React from "react";
 import "./current-weather.css";
+import { useSelector } from "react-redux";
+import { selectIsLogin } from "../../redux/auth/auth-selectors";
 
 const CurrentWeather = ({ data, onAddCity, showAddButton }) => {
+  const isLogin = useSelector(selectIsLogin);
   return (
     <div className="weather">
       <div className="top">
@@ -39,7 +42,7 @@ const CurrentWeather = ({ data, onAddCity, showAddButton }) => {
         </div>
       </div>
 
-      {showAddButton && (
+      {isLogin && showAddButton && (
         <button onClick={onAddCity} className="add-city-button">
           +
         </button>
