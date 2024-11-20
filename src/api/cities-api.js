@@ -2,7 +2,7 @@ import axios from "axios";
 import { store } from "../redux/store";
 
 const instance = axios.create({
-  baseURL: "http://localhost:4000/",
+  baseURL: "https://weather-back-yol1.onrender.com/",
 });
 
 instance.interceptors.request.use((config) => {

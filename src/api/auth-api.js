@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const authInstance = axios.create({
-  baseURL: "http://localhost:4000",
+  baseURL: "https://weather-back-yol1.onrender.com",
 });
 
 // authInstance.interceptors.request.use((config) => {
