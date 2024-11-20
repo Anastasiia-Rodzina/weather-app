@@ -1,3 +1,4 @@
 {
-  "routes": [{ "src": "/manifest.json", "dest": "/public/manifest.json" }]
+  "rewrites": [{ "source": "/(.*)", "destination": "/" }]
 }
+
